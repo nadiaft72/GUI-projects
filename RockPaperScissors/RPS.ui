@@ -1,3 +1,7 @@
+<!-- RockPaperScissors UI File -->
+<!-- XML representation of the PyQt5 UI created using Qt Designer -->
+<!-- The file defines the graphical layout of the Rock, Paper, Scissors game window. -->
+
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>MainWindow</class>
