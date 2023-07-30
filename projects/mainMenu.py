@@ -13,11 +13,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_MainMenu(object):
     def setupUi(self, MainWindow):
+        # Set up the main window with the specified size
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(410, 478)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
+        # Set up the style sheet for the frame (background color)
         self.frame.setGeometry(QtCore.QRect(9, 9, 391, 421))
         self.frame.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #304352, stop:1 #d7d2cc);")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -25,6 +27,7 @@ class Ui_MainMenu(object):
         self.frame.setObjectName("frame")
         self.label_3 = QtWidgets.QLabel(self.frame)
         self.label_3.setGeometry(QtCore.QRect(40, 20, 181, 31))
+        # Set up the font and style for the label
         font = QtGui.QFont()
         font.setFamily("Comic Sans MS")
         font.setPointSize(12)
@@ -39,6 +42,7 @@ class Ui_MainMenu(object):
         self.label_3.setObjectName("label_3")
         self.pushButton_passwordGenerator = QtWidgets.QPushButton(self.frame)
         self.pushButton_passwordGenerator.setGeometry(QtCore.QRect(40, 110, 161, 31))
+        # Set up the font and style for the "passwordGenerator" button
         font = QtGui.QFont()
         font.setFamily("Comic Sans MS")
         font.setPointSize(10)
@@ -54,6 +58,8 @@ class Ui_MainMenu(object):
 "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #948E99, stop:1 #2E1437);\n"
 "}")
         self.pushButton_passwordGenerator.setObjectName("pushButton_passwordGenerator")
+        # ... (additional code for the rest of the UI elements)
+        # ...
         self.pushButton_min = QtWidgets.QPushButton(self.frame)
         self.pushButton_min.setGeometry(QtCore.QRect(306, 10, 18, 18))
         self.pushButton_min.setMinimumSize(QtCore.QSize(18, 18))
