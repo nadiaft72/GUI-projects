@@ -18,13 +18,15 @@ import tkinter as tk
 import requests
 
 class Ui_youtubeDownloaderWindow(QWidget):
- 
+    # Set up the font and style for the "url" label
     def setupUi(self, MainWindow):
+        # Set up the main window with the specified size
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(790, 459)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
+        # Set up the style sheet for the frame (background color)
         self.frame.setGeometry(QtCore.QRect(10, 20, 761, 421))
         self.frame.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #304352, stop:1 #d7d2cc);\n"
 "border-radius:20px;")
@@ -33,6 +35,7 @@ class Ui_youtubeDownloaderWindow(QWidget):
         self.frame.setObjectName("frame")
         self.label = QtWidgets.QLabel(self.frame)
         self.label.setGeometry(QtCore.QRect(10, 89, 101, 31))
+        # Set up the font and style for the "url" label
         font = QtGui.QFont()
         font.setFamily("Comic Sans MS")
         font.setPointSize(9)
@@ -43,7 +46,8 @@ class Ui_youtubeDownloaderWindow(QWidget):
 "")
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.frame)
-        self.label_2.setGeometry(QtCore.QRect(7, 273, 81, 31))
+        self.label_2.setGeometry(QtCore.QRect(7, 273, 81, 31))        
+        # Set up the font and style for the "save to" label
         font = QtGui.QFont()
         font.setFamily("Comic Sans MS")
         font.setPointSize(9)
@@ -65,6 +69,7 @@ class Ui_youtubeDownloaderWindow(QWidget):
         self.lineEdit_url.setObjectName("lineEdit_url")
         self.label_3 = QtWidgets.QLabel(self.frame)
         self.label_3.setGeometry(QtCore.QRect(132, 30, 181, 31))
+        # Set up the font and style for the title label "Youtube downloader"
         font = QtGui.QFont()
         font.setFamily("Comic Sans MS")
         font.setPointSize(12)
@@ -79,6 +84,7 @@ class Ui_youtubeDownloaderWindow(QWidget):
         self.label_3.setObjectName("label_3")
         self.pushButton_start = QtWidgets.QPushButton(self.frame)
         self.pushButton_start.setGeometry(QtCore.QRect(320, 354, 101, 31))
+        # Set up the font and style for the "Start" button
         font = QtGui.QFont()
         font.setFamily("Comic Sans MS")
         font.setPointSize(10)
@@ -220,7 +226,9 @@ class Ui_youtubeDownloaderWindow(QWidget):
         self.pushButton_max.clicked.connect(MainWindow.showNormal)
         self.pushButton_min.clicked.connect(self.pushButton_min.showMinimized)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
+         
+        # ... (additional code for the rest of the UI elements)
+        # ...
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
@@ -249,6 +257,7 @@ class Ui_youtubeDownloaderWindow(QWidget):
         self.pushButton_start.clicked.connect(self.download_file)
 
     def paste_text(self):
+        # This function retrieves text from the clipboard and sets it in the "url" input field
         root = tk.Tk()
         spam = root.clipboard_get()
         self.lineEdit_url.setText(spam)
@@ -257,6 +266,7 @@ class Ui_youtubeDownloaderWindow(QWidget):
         self.internet_on()
 
     def internet_on(self):
+        # This function checks internet connectivity and calls the "show_streams" function if successful
         url = "http://www.google.com"
         timeout = 5.
         try:
@@ -267,7 +277,7 @@ class Ui_youtubeDownloaderWindow(QWidget):
             self.label_videoTitle.setText("please check your connection...!")
 
     def show_streams(self):
-
+        # This function fetches the available streams for the given URL and displays them in the UI
         global yt ,listOfStreams
         yt = pytube.YouTube(url,on_progress_callback=on_progress)
         title = yt.streams.get_highest_resolution().title
@@ -293,6 +303,7 @@ class Ui_youtubeDownloaderWindow(QWidget):
         self.comboBox_quality.addItems(listOfStreams)
 
     def onActivated(self , text):
+        # This function is triggered when the user selects an option from the quality combobox
         global itag , video
         print("the text is  :  "+text)
         if text in listOfStreams:
@@ -306,6 +317,7 @@ class Ui_youtubeDownloaderWindow(QWidget):
 
               
     def file_save(self):
+        # This function opens a file dialog to choose the save directory and sets the path in the UI
         global dir_path
         dir_path=QFileDialog.getExistingDirectory(self,"Choose Directory",dir_path)
         print(dir_path)
@@ -313,6 +325,7 @@ class Ui_youtubeDownloaderWindow(QWidget):
 
 
     def download_file(self):
+        # This function starts the video download using the selected quality and save path
         print("itag : "+ str(itag))
         print(type(itag))
         print(url)
