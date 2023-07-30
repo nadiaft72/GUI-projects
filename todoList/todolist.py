@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
+# UI class for the ToDo List application
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -181,19 +181,23 @@ class Ui_MainWindow(object):
         self.pushButton_delete_item.clicked.connect(self.delete_task)
         self.pushButton_clear_task_list.clicked.connect(self.clear_list)
 
+    # Function to add a task to the ToDo list
     def add_task(self):
         global task 
         task = self.lineEdit_task.text()
         self.listWidget_todo.addItem(task)
+        
+    # Function to delete selected tasks from the ToDo list
     def delete_task(self):
         listItems=self.listWidget_todo.selectedItems()
         if not listItems: return        
         for item in listItems:
             self.listWidget_todo.takeItem(self.listWidget_todo.row(item))
+    # Function to clear the entire ToDo list
     def clear_list(self):
             self.listWidget_todo.clear()
 
-
+# Main block to execute the application
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
