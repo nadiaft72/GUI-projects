@@ -14,11 +14,13 @@ from PyQt5.QtCore import *
 
 class Ui_PasswordGenerator(object):
     def setupUi(self, MainWindow):
+        # Set up the main window with the specified size
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(410, 478)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
+        # Set up the style sheet for the frame (background color)
         self.frame.setGeometry(QtCore.QRect(9, 9, 391, 421))
         self.frame.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #304352, stop:1 #d7d2cc);")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -26,6 +28,7 @@ class Ui_PasswordGenerator(object):
         self.frame.setObjectName("frame")
         self.label = QtWidgets.QLabel(self.frame)
         self.label.setGeometry(QtCore.QRect(63, 110, 101, 31))
+        # Set up the font and style for the "Password length" label
         font = QtGui.QFont()
         font.setFamily("Comic Sans MS")
         font.setPointSize(9)
@@ -37,6 +40,7 @@ class Ui_PasswordGenerator(object):
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.frame)
         self.label_2.setGeometry(QtCore.QRect(30, 160, 141, 31))
+        # Set up the font and style for the "Number of passwords" label
         font = QtGui.QFont()
         font.setFamily("Comic Sans MS")
         font.setPointSize(9)
@@ -58,6 +62,7 @@ class Ui_PasswordGenerator(object):
         self.lineEdit_Length.setObjectName("lineEdit_Length")
         self.label_3 = QtWidgets.QLabel(self.frame)
         self.label_3.setGeometry(QtCore.QRect(110, 50, 181, 31))
+        # Set up the font and style for the title label "Password generator"
         font = QtGui.QFont()
         font.setFamily("Comic Sans MS")
         font.setPointSize(12)
@@ -72,6 +77,7 @@ class Ui_PasswordGenerator(object):
         self.label_3.setObjectName("label_3")
         self.pushButton_gnerate = QtWidgets.QPushButton(self.frame)
         self.pushButton_gnerate.setGeometry(QtCore.QRect(150, 250, 101, 31))
+        # Set up the font and style for the "Generate" button
         font = QtGui.QFont()
         font.setFamily("Comic Sans MS")
         font.setPointSize(10)
@@ -138,6 +144,7 @@ class Ui_PasswordGenerator(object):
         self.pushButton_gnerate.clicked.connect(self.passwordGenerator)
 
     def passwordGenerator(self):
+        # This function generates random passwords based on user input
         import random
         string = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
         number = "1234567890"
